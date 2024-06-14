@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "unified-bookmarker-knowledge-indexer"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+newspaper4k = "^0.9.3.1"
+lxml-html-clean = "^0.1.1"
+typing-extensions = "^4.12.2"
+langchain = "^0.2.3"
+python-dotenv = "^1.0.1"
+ipykernel = "^6.29.4"
+pinecone = "^4.0.0"
+langchain-community = "^0.2.4"
+speechrecognition = "^3.10.4"
+pydub = "^0.25.1"
+openai = "^1.34.0"
+tiktoken = "^0.7.0"
+langchain-openai = "^0.1.8"
+openai-whisper = {git = "https://github.com/openai/whisper.git"}
+pytube = "^15.0.0"
+soundfile = "^0.12.1"
+torch = "^2.3.1"
+torchvision = "^0.18.1"
+torchaudio = "^2.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
