@@ -27,6 +27,8 @@ torch = "^2.3.1"
 torchvision = "^0.18.1"
 torchaudio = "^2.3.1"
 scrapegraphai = "^1.6.1"
+fastapi = {extras = ["all"], version = "^0.111.0"}
+uvicorn = "^0.30.1"
 
 
 [build-system]
