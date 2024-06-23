@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import Dict, List
 
 # text-parser
 from text_parser import get_topic_keywords
@@ -15,23 +16,33 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-
-class Item(BaseModel):
-    url: str
-
-#! Need to come back and read about asnycio event order and how to call other async events in a loop: https://stackoverflow.com/questions/76142431/how-to-run-another-application-within-the-same-running-event-loop
+# create storage for keywords
+keywords_store: Dict[str, List[str]] = {}
 
 
 def process_url(url: str):
     keywords = get_topic_keywords(url)
+    keywords_store[url] = keywords
 
-    print("Keywords: ", keywords)
+    print("Keywords: ", keywords_store)
 
 
 @app.post('/submit-url')
-async def submit_url(item: Item, background_tasks: BackgroundTasks):
-    print(f'Received URL: {item.url}')
+async def submit_url(url: str, background_tasks: BackgroundTasks):
+    print(f'Received URL: {url}')
 
-    background_tasks.add_task(process_url, item.url)
+    background_tasks.add_task(process_url, url)
 
-    return {"message": "Process started"}
+    return {"message": "Keywords generation starting..."}
+
+
+@app.get('/keywords')
+async def get_keywords(url: str):
+    print("-" * 40)
+    print(f"Getting keywords for {url}")
+
+    if url in keywords_store:
+        return {"keywords": keywords_store[url]}
+    else:
+        raise HTTPException(
+            status_code=404, detail="Keywords not found for provided URL")
