@@ -1,17 +1,18 @@
 # ScrapeGraph: https://scrapegraph-ai.readthedocs.io/en/latest/scrapers/graphs.html
 
 # ? Currently supports single page scrapes. Look @ docs for multi-page scrapes.
+# ? Prompt can make it return multiple outputs. Right now we're returning top 5 key words + summary
 
 import os
 from dotenv import load_dotenv
-from scrapegraphai.graphs import SmartScraperGraph
+from scrapegraphai.graphs import OmniScraperGraph
 
 
-def get_topic_keywords(url: str) -> list[str]:
+def keywords_summary(url: str):
     load_dotenv()
     openai_key = os.getenv('OPENAI_API_KEY')
 
-    PROMPT = "Extract the top 5 topic content keywords based on a summary and synthesis of the content of this webpage."
+    PROMPT = "Extract the top 5 topic content keywords and a 750 word summary based on a synthesis of the content of this webpage (including text and images)."
 
     graph_config = {
         "llm": {
@@ -21,7 +22,7 @@ def get_topic_keywords(url: str) -> list[str]:
     }
 
     # Create smartgraph instance
-    smart_scraper_graph = SmartScraperGraph(
+    smart_scraper_graph = OmniScraperGraph(
         prompt=PROMPT,
         source=url,
         config=graph_config
@@ -29,6 +30,4 @@ def get_topic_keywords(url: str) -> list[str]:
 
     result = smart_scraper_graph.run()
 
-    keywords = list(result.values())[0]
-
-    return keywords
+    return list(result.values())

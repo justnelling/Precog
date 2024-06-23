@@ -1,3 +1,13 @@
+# Action points
+
+23/6/2024
+
+1. Focusing on text-parser for now: need to get both keywords + summary functionality from scrapegraph-AI
+2. Video-parser next -- feels clunky right now (having to download the video transcript and then analyse that. Need to research better way of executing this)
+3. Once we can get the keywords categorisations for both text and video, figure out how we want to organise it into a central store. The key here is that we want it modular so its like a file-based bookmark system.
+
+---
+
 # Core
 
 This app aims to be a central, universal bookmarker and knowledge-resource organizer. It will be able to intuitively and cohesively see what media you're currently consuming and:
@@ -28,13 +38,6 @@ This app aims to be a central, universal bookmarker and knowledge-resource organ
 
 1. Before we go deep into the intelligent content categorisation and parsing, we should perhaps first focus on the simple intelligent indexing / bookmarking of content for you first. That's really the main draw of the app.
 2. Then second stage is to focus on the intelligent categorisation of the content, the relations via knowledge graph, etc.
-
-### Action points
-
-1. text_parser (takes in URL) (DONE)
-2. Implemented video_transcriber (only youtube for now)
-3. Need to figure out a more universal template for video_parser, so that it can dynamically create system prompts for the video content rather than having it hardcoded.
-4. Once we can get the keywords categorisations for both text and video, figure out how we want to organise it into a central store. The key here is that we want it modular so its like a file-based bookmark system.
 
 ### Resources
 
