@@ -2,9 +2,13 @@
 
 23/6/2024
 
-1. Focusing on text-parser for now: need to get both keywords + summary functionality from scrapegraph-AI
-2. Video-parser next -- feels clunky right now (having to download the video transcript and then analyse that. Need to research better way of executing this)
-3. Once we can get the keywords categorisations for both text and video, figure out how we want to organise it into a central store. The key here is that we want it modular so its like a file-based bookmark system.
+1. Flesh out browser extension to include button to save AI synthesis to web app
+2. Start building main web app page:  
+   a. Endpoint to receive data from server (not from browser extension)
+   b. A landing page where user can access all these saved summaries
+   c. Knowledge graph visualisation
+3. Come back to VideoParser -- feels clunky right now (having to download the video transcript and then analyse that. Need to research better way of executing this)
+4. Once we can get the keywords categorisations for both text and video, figure out how we want to organise it into a central store. The key here is that we want it modular so its like a file-based bookmark system.
 
 ---
 
@@ -41,4 +45,16 @@ This app aims to be a central, universal bookmarker and knowledge-resource organ
 
 ### Resources
 
+#### Text
+
 1. use scrapegraph to improve URL text / image parsing (https://scrapegraph-ai.readthedocs.io/en/latest/scrapers/graphs.html)
+
+#### Video
+
+1. use The Pipe for video analysis? (https://thepi.pe/) --> paid API but this might be the fastest
+2. Building from scratch with llamaindex going to be so laborious --> https://www.llamaindex.ai/blog/multimodal-rag-for-advanced-video-processing-with-llamaindex-lancedb-33be4804822e
+
+Eliminated:
+
+1. Microsoft Azure AI Video Indexer (doesn't work for youtube urls)
+2. AssemblyAI (doesn't work for youtube urls)'

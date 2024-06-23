@@ -22,6 +22,7 @@ def keywords_summary(url: str):
     }
 
     # Create smartgraph instance
+    # ? can possibly also impose schema for output
     smart_scraper_graph = OmniScraperGraph(
         prompt=PROMPT,
         source=url,
