@@ -12,7 +12,7 @@ def keywords_summary(url: str):
     load_dotenv()
     openai_key = os.getenv('OPENAI_API_KEY')
 
-    PROMPT = "Extract the top 5 topic content keywords and a 750 word summary based on a synthesis of the content of this webpage (including text and images)."
+    PROMPT = "Extract the top 5 topic content keywords and a 750 word summary based on an insightful synthesis of the content of this webpage (including text and images)."
 
     graph_config = {
         "llm": {
