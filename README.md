@@ -1,5 +1,12 @@
 # Action points
 
+14/7/2024
+
+New video analyser module.
+
+1. Work on chrome extension to do both webpage text / image summary + youtube video summary.
+2. Work on how to summarize non youtube video URLs.
+
 23/6/2024
 
 1. Flesh out browser extension to include button to save AI synthesis to web app
