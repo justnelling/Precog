@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+
 from pydantic import BaseModel
 from typing import Dict, List
 
@@ -39,8 +41,12 @@ async def get_keywords(url: str):
     print("-" * 40)
     print(f"Getting keywords for {url}")
 
+    #! now to parse this out nicer to frontend
     if url in ks_store:
         return {"keywords": ks_store[url][0], "summary": ks_store[url][1]}
     else:
         raise HTTPException(
             status_code=404, detail="Keywords not found for provided URL")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)

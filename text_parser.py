@@ -5,10 +5,10 @@
 
 import os
 from dotenv import load_dotenv
-from scrapegraphai.graphs import OmniScraperGraph
+from scrapegraphai.graphs import OmniScraperGraph, SmartScraperGraph
 
 
-def keywords_summary(url: str):
+def keywords_summary(URL: str):
     load_dotenv()
     openai_key = os.getenv('OPENAI_API_KEY')
 
@@ -23,12 +23,21 @@ def keywords_summary(url: str):
 
     # Create smartgraph instance
     # ? can possibly also impose schema for output
-    smart_scraper_graph = OmniScraperGraph(
+
+    # omni_scraper_graph = OmniScraperGraph(
+    #     prompt=PROMPT,
+    #     source=URL,
+    #     config=graph_config,
+    # )
+
+    smart_scraper_graph = SmartScraperGraph(
         prompt=PROMPT,
-        source=url,
-        config=graph_config
+        source=URL,
+        config=graph_config,
     )
 
     result = smart_scraper_graph.run()
+
+    print(result)
 
     return list(result.values())

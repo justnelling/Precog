@@ -1,5 +1,18 @@
 # Action points
 
+20/07/2024
+
+1. parse out results nicer to frontend. Currently just dictionary with {keywords: [], summary: xxx}
+2. Can do text but cannot do image interpretation anymore (feeding to gpt-4o)
+   a. Issue seems to come from scrapegraphai with omniscrapegraph, so reverted to smartscrapegraph for now. Might be scrapegraphai side or OpenAI side.
+3. Integrate with youtube videos
+4. The text_parser and video_analysis parts can probably use output validation with pydantic at some point.
+
+Concerns:
+
+1. Look for how to interpret images reliably as well
+2. Look for how to handle non-youtube videos
+
 14/7/2024
 
 New video analyser module.

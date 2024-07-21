@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "URL Capture Extension",
+  "name": "Auto Recall",
   "version": "1.0",
   "permissions": ["activeTab", "scripting", "storage"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Capture URL",
+    "default_title": "Auto Recall",
     "default_popup": "popup.html"
   }
 }
